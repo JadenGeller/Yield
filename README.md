@@ -37,7 +37,7 @@ This will make sure your main function runs and that the program exits once it r
 
 ## One more thing...
 
-If you wanna be a coroutine master, check out `ArgumentPassingCoroutine`. This class gives up its siblings `GeneratorType` conformance for an even cooler power---the ability to send data back into the coroutine when `next` is called! Check it out!
+If you wanna be a coroutine master, check out `ArgumentPassingCoroutine`. This class gives up its sibling's `GeneratorType` conformance for an even cooler power---the ability to send data back into the coroutine when `next` is called! Check it out!
 ```swift
 let accumulator = ArgumentPassingCoroutine<Int, Int> { yield in
 	var total = 0
