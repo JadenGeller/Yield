@@ -27,7 +27,7 @@ for x in fibb {
 
 ## Usage
 
-If you want to use `Coroutine` in a iOS or OS X, it's super easy---just use it! If you want to use it in a Playground or a command line application, however, its a bit tricker (but not hard!). Since these don't have main run loop (and thus will never check the coroutine thread to see if its ready), our coroutines won't work. There's an easy fix though. Write all your code in `func main() { ... }`, and then put the following after your function declaration:
+If you want to use `Coroutine` in an iOS or OS X project, it's super easy---just use it! If you want to use it in a Playground or a command line application, however, its a bit tricker (but not hard!). Since these don't have main run loop (and thus will never check the coroutine thread to see if its ready), our coroutines won't work. There's an easy fix though. Write all your code in `func main() { ... }`, and then put the following after your function declaration:
 ```swift
 dispatch_async(dispatch_get_main_queue(), main)
 dispatch_async(dispatch_get_main_queue(), { exit(0) })
