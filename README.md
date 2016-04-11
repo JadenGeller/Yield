@@ -50,3 +50,5 @@ for i in 0...10 {
 	print(accumulator.next(i)) // -> 0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55
 }
 ```
+
+What're these useful for? [Well...](http://www.dabeaz.com/coroutines/)
