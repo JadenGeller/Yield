@@ -25,6 +25,8 @@ for x in fibb {
 }
 ```
 
+## Usage
+
 If you want to use `Coroutine` in a iOS or OS X, it's super easy---just use it! If you want to use it in a Playground or a command line application, however, its a bit tricker (but not hard!). Since these don't have main run loop (and thus will never check the coroutine thread to see if its ready), our coroutines won't work. There's an easy fix though. Write all your code in `func main() { ... }`, and then put the following after your function declaration:
 ```swift
 dispatch_async(dispatch_get_main_queue(), main)
@@ -32,3 +34,19 @@ dispatch_async(dispatch_get_main_queue(), { exit(0) })
 dispatch_main()
 ```
 This will make sure your main function runs and that the program exits once it returns. Additionally, this will start the programs run loop so that our coroutine thread will run.
+
+## One last thing...
+
+If you wanna be a coroutine master, check out `ArgumentPassingCoroutine`. This class gives up its siblings `GeneratorType` conformance for an even cooler power---the ability to send data back into the coroutine when `next` is called! Check it out!
+```swift
+let accumulator = ArgumentPassingCoroutine<Int, Int> { yield in
+	var total = 0
+	while true {
+		total += yield(total)
+	}
+}
+
+for i in 0...10 {
+	print(accumulator.next(i)) // -> 0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55
+}
+```
