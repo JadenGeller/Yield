@@ -35,7 +35,7 @@ dispatch_main()
 ```
 This will make sure your main function runs and that the program exits once it returns. Additionally, this will start the programs run loop so that our coroutine thread will run.
 
-## One last thing...
+## One more thing...
 
 If you wanna be a coroutine master, check out `ArgumentPassingCoroutine`. This class gives up its siblings `GeneratorType` conformance for an even cooler power---the ability to send data back into the coroutine when `next` is called! Check it out!
 ```swift
