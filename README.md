@@ -51,4 +51,4 @@ for i in 0...10 {
 }
 ```
 
-What're these useful for? [Well...](http://www.dabeaz.com/coroutines/)
+What're these useful for? Well, [concurrency](http://www.dabeaz.com/coroutines/) and [combinatorics](http://sahandsaba.com/combinatorial-generation-using-coroutines-in-python.html) and [asynchronous IO](http://sahandsaba.com/understanding-asyncio-node-js-python-3-4.html) and lots more!
