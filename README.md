@@ -3,9 +3,11 @@
 Lots of languages allow uses to `yield` in functions to easily create generators and coroutines. Yield brings this functionality to Swift using threads. Essentially, Yield spawns a new thread for each coroutine and pauses it when waiting for the next call to `next`.
 
 ```swift
+let maxFibbValue = 100
+
 let fibbGenerator = Coroutine<Int> { yield in
     var (a, b) = (1, 1)
-    while b < 100 {
+    while b < maxValue {
         (a, b) = (b, a + b)
         yield(a)
    }
