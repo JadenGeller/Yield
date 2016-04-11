@@ -3,27 +3,32 @@
 Lots of languages allow uses to `yield` in functions to easily create generators and coroutines. Yield brings this functionality to Swift using threads. Essentially, Yield spawns a new thread for each coroutine and pauses it when waiting for the next call to `next`.
 
 ```swift
-let countTwiceGenerator = Coroutine<Int> { yield in
-    for i in 1...10 {
-			yield(i)
-			yield(i)
-		}
-	}
+let fibbGenerator = Coroutine<Int> { yield in
+    var (a, b) = (1, 1)
+    while b < 100 {
+        (a, b) = (b, a + b)
+        yield(a)
+   }
+}
 ```
 
 The above coroutine will, on first call to `next`, begin execution. Once it reaches the first `yield` call, it will stop, and wait until the next call to `next`. This will continue until the coroutine finishes execution and returns. At this point, `next` will return `nil`.
 
 Note that a `Coroutine` is a `GeneratorType`, so we can wrap it in an `AnySequence` and use it multiple times.
 ```swift
-let countTwice = AnySequence { countTwiceGenerator }
+let fibb = AnySequence { fibbGenerator }
 
-for x in countTwice {
+for x in fibb {
     print(x) // -> 1
 }            //    1
              //    2
              //    2
              //    3
              //    3
+             //    5
+             //    5
+             //    8
+             //    8
              //    ...
 ```
 
