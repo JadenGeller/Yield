@@ -19,17 +19,8 @@ Note that a `Coroutine` is a `GeneratorType`, so we can wrap it in an `AnySequen
 let fibb = AnySequence { fibbGenerator }
 
 for x in fibb {
-    print(x) // -> 1
-}            //    1
-             //    2
-             //    2
-             //    3
-             //    3
-             //    5
-             //    5
-             //    8
-             //    8
-             //    ...
+    print(x) // -> 1, 2, 3, 5, 8, 13, 21, 55, 89
+}
 ```
 
 If you want to use `Coroutine` in a iOS or OS X, it's super easy---just use it! If you want to use it in a Playground or a command line application, however, its a bit tricker (but not hard!). Since these don't have main run loop (and thus will never check the coroutine thread to see if its ready), our coroutines won't work. There's an easy fix though. Write all your code in `func main() { ... }`, and then put the following after your function declaration:
