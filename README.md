@@ -9,7 +9,7 @@ let fibbGenerator = Coroutine<Int> { yield in
     var (a, b) = (1, 1)
     while b < maxValue {
         (a, b) = (b, a + b)
-        yield(a)
+        yield(a) // Returns `a`, and then continues from here when `next` is called again
    }
 }
 ```
