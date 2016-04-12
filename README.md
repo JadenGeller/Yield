@@ -42,7 +42,7 @@ If you wanna be a coroutine master, check out `ArgumentPassingCoroutine`. This c
 let accumulator = ArgumentPassingCoroutine<Int, Int> { yield in
 	var total = 0
 	while true {
-		total += yield(total)
+		total += yield(total) // Returns `total`, and evalutes to the next argument passed to `next`
 	}
 }
 
